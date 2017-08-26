@@ -34,13 +34,21 @@ namespace CheeseMVC.ViewModels
 
             Categories = new List<SelectListItem>();
 
-            
-            Categories.Add(new SelectListItem
+
+
+
+            for (int i = 0; i < categories.ToList<CheeseCategory>().Count; i++)
             {
-                //Value = int CategoryID,
-                Value = ((int)CategoryID).ToString(),
-                Text = Name
-            });
+
+
+                Categories.Add(new SelectListItem
+                {
+
+                    //Value = ((int)CategoryID).ToString(),
+                    Value = categories.ToList<CheeseCategory>()[i].ID.ToString(),
+                    Text = categories.ToList<CheeseCategory>()[i].Name
+                });
+            }
         }
     }
 }
