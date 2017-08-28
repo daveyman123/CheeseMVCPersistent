@@ -17,19 +17,21 @@ namespace CheeseMVC.Controllers
             context = dbContext;
         }
 
-        // GET: /<controller>/
-        public IActionResult Index()
-        {
-            IList<Cheese> cheeses = context.Cheeses.Include(c => c.Category).ToList();
-
-            return View(cheeses);
-        }
+        
 
         public IActionResult Add()
         {
             AddCheeseViewModel addCheeseViewModel = new AddCheeseViewModel(context.Categories.ToList());
 
             return View(addCheeseViewModel);
+        }
+
+        // GET: /<controller>/
+        public IActionResult Index()
+        {
+            IList<Cheese> cheeses = context.Cheeses.Include(c => c.Category).ToList();
+
+            return View(cheeses);
         }
 
         [HttpPost]

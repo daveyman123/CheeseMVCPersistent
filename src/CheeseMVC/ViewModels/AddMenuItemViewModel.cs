@@ -30,12 +30,14 @@ namespace CheeseMVC.ViewModels
             menuID = menu.ID;
             cheeseID = cheese.ToList<Cheese>()[0].ID;
             Cheeses = new List<SelectListItem>();
-
-            Cheeses.Add(new SelectListItem
+            for (int i = 0; i < cheese.ToList<Cheese>().Count; i++)
             {
-                Value = cheese.ToList<Cheese>()[0].ID.ToString(),
-                Text = cheese.ToList<Cheese>()[0].Name.ToString()
-            });
+                Cheeses.Add(new SelectListItem
+                {
+                    Value = cheese.ToList<Cheese>()[i].ID.ToString(),
+                    Text = cheese.ToList<Cheese>()[i].Name.ToString()
+                });
+            }
         }
 
     }
